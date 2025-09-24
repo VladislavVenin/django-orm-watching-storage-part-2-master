@@ -7,7 +7,7 @@ def get_duration(visit):
         duration = moscow_time - visit.entered_at
     else:
         duration = visit.leaved_at - visit.entered_at
-    return duration.total_seconds()
+    return int(duration.total_seconds())
 
 
 def format_duration(duration):
@@ -21,6 +21,4 @@ def format_duration(duration):
 
 def is_visit_long(duration, long_visit=60):
     minute = 60
-    if duration/minute > long_visit:
-        return True
-    return False
+    return duration/minute > long_visit
